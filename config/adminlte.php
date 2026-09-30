@@ -37,7 +37,7 @@ return [
     |
     */
 
-    'title' => 'AdminLTE 4',
+    'title' => 'kasir 2',
     'title_prefix' => '',
     'title_postfix' => '',
 
@@ -77,12 +77,12 @@ return [
     |
     */
 
-    'logo' => '<b>Admin</b>LTE',
+    'logo' => '<b>kasir 2</b>aw',
     'logo_img' => 'vendor/adminlte/dist/assets/img/logo aw.png',
     'logo_img_class' => 'brand-image opacity-75 shadow',
     'logo_img_xl' => null,
     'logo_img_xl_class' => 'brand-image-xs opacity-75',
-    'logo_img_alt' => 'Admin Logo',
+    'logo_img_alt' => 'aw Logo',
 
     /*
     |--------------------------------------------------------------------------
