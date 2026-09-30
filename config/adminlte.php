@@ -78,7 +78,7 @@ return [
     */
 
     'logo' => '<b>Admin</b>LTE',
-    'logo_img' => 'vendor/adminlte/dist/assets/img/AdminLTELogo.png',
+    'logo_img' => 'vendor/adminlte/dist/assets/img/logo aw.png',
     'logo_img_class' => 'brand-image opacity-75 shadow',
     'logo_img_xl' => null,
     'logo_img_xl_class' => 'brand-image-xs opacity-75',
@@ -100,7 +100,7 @@ return [
     'auth_logo' => [
         'enabled' => false,
         'img' => [
-            'path' => 'vendor/adminlte/dist/assets/img/AdminLTELogo.png',
+            'path' => 'vendor/adminlte/dist/assets/img/logo aw.png',
             'alt' => 'Auth Logo',
             'class' => '',
             'width' => 50,
@@ -136,7 +136,7 @@ return [
         'enabled' => true,
         'mode' => 'fullscreen',
         'img' => [
-            'path' => 'vendor/adminlte/dist/assets/img/AdminLTELogo.png',
+            'path' => 'vendor/adminlte/dist/assets/img/logo aw.png',
             'alt' => 'AdminLTE Preloader Image',
             'effect' => 'animation__shake',
             'width' => 60,
@@ -751,27 +751,11 @@ return [
         'except' => [],
     ],
 
-    /*
-    |--------------------------------------------------------------------------
-    | Menu Items
-    |--------------------------------------------------------------------------
-    |
-    | Here we can modify the sidebar/top navigation of the admin panel.
-    |
-    | For detailed instructions you can look here:
-    | https://jeroennoten.github.io/Laravel-AdminLTE/sections/configuration/menu.html
-    |
-    */
-
     'menu' => [
         // Navbar items:
         [
             'type' => 'navbar-search',
             'text' => 'search',
-            'topnav_right' => true,
-        ],
-        [
-            'type' => 'darkmode-widget',
             'topnav_right' => true,
         ],
         [
@@ -792,7 +776,7 @@ return [
         [
             'text' => 'pages',
             'url' => 'admin/pages',
-            'icon' => 'bi bi-file-earmark',
+            'icon' => 'far fa-fw fa-file',
             'label' => 4,
             'label_color' => 'success',
         ],
@@ -800,16 +784,16 @@ return [
         [
             'text' => 'profile',
             'url' => 'admin/settings',
-            'icon' => 'bi bi-person',
+            'icon' => 'fas fa-fw fa-user',
         ],
         [
             'text' => 'change_password',
             'url' => 'admin/settings',
-            'icon' => 'bi bi-lock',
+            'icon' => 'fas fa-fw fa-lock',
         ],
         [
             'text' => 'multilevel',
-            'icon' => 'bi bi-share',
+            'icon' => 'fas fa-fw fa-share',
             'submenu' => [
                 [
                     'text' => 'level_one',
@@ -848,17 +832,17 @@ return [
         ['header' => 'labels'],
         [
             'text' => 'important',
-            'icon_color' => 'danger',
+            'icon_color' => 'red',
             'url' => '#',
         ],
         [
             'text' => 'warning',
-            'icon_color' => 'warning',
+            'icon_color' => 'yellow',
             'url' => '#',
         ],
         [
             'text' => 'information',
-            'icon_color' => 'info',
+            'icon_color' => 'cyan',
             'url' => '#',
         ],
     ],
