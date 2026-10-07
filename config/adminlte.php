@@ -776,6 +776,7 @@ return [
             'type' => 'sidebar-menu-search',
             'text' => 'search',
         ],
+
         [
             'text' => 'blog',
             'url' => 'admin/blog',
@@ -784,6 +785,35 @@ return [
         [
             'text' => 'pages',
             'url' => 'admin/pages',
+            'icon' => 'far fa-fw fa-file',
+            'label' => 4,
+            'label_color' => 'success',
+        ],
+        [
+            'text' => 'jurusan',
+            'url' => 'admin/jurusan',
+            'icon' => 'far fa-fw fa-file',
+            'label' => 4,
+            'label_color' => 'success',
+            'label_logo' => 'fas fa-fw fa-book',
+        ],
+        [
+            'text' => 'jenjang',
+            'url' => 'admin/jenjang',
+            'icon' => 'far fa-fw fa-file',
+            'label' => 4,
+            'label_color' => 'success',
+        ],
+        [
+            'text' => 'kelas',
+            'url' => 'admin/kelas',
+            'icon' => 'far fa-fw fa-file',
+            'label' => 4,
+            'label_color' => 'success',
+        ],
+        [
+            'text' => 'siswa',
+            'url' => 'admin/siswa',
             'icon' => 'far fa-fw fa-file',
             'label' => 4,
             'label_color' => 'success',
