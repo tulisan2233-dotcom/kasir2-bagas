@@ -791,7 +791,7 @@ return [
         ],
         [
             'text' => 'jurusan',
-            'url' => 'admin/jurusan',
+            'url' => 'jurusan',
             'icon' => 'far fa-fw fa-file',
             'label' => 4,
             'label_color' => 'success',
@@ -799,21 +799,21 @@ return [
         ],
         [
             'text' => 'jenjang',
-            'url' => 'admin/jenjang',
+            'url' => 'jenjang',
             'icon' => 'far fa-fw fa-file',
             'label' => 4,
             'label_color' => 'success',
         ],
         [
             'text' => 'kelas',
-            'url' => 'admin/kelas',
+            'url' => 'kelas',
             'icon' => 'far fa-fw fa-file',
             'label' => 4,
             'label_color' => 'success',
         ],
         [
             'text' => 'siswa',
-            'url' => 'admin/siswa',
+            'url' => 'siswa',
             'icon' => 'far fa-fw fa-file',
             'label' => 4,
             'label_color' => 'success',

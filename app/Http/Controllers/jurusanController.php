@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\jurusan;
+use Illuminate\Http\Request;
 
 class jurusanController extends Controller
 {
@@ -12,7 +12,7 @@ class jurusanController extends Controller
      */
     public function index(Request $request)
     {
-         //Filter search
+	    //Filter search
         $jurusan = jurusan::query()
             ->when($request->search, function ($query, $search) {
                 $query->where('nama_jurusan', 'like', "%{$search}%")
@@ -23,51 +23,58 @@ class jurusanController extends Controller
         return view('jurusan.index', compact('jurusan'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
+     public function create()
     {
-        //
+        return view('jurusan.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
-        //
+        // Validasi sekaligus simpan hasilnya ke variabel $data
+        $data = $request->validate([
+            'nama_jurusan' => 'required|string|max:255',
+            'kode_jurusan' => 'required|string|unique:jurusan|max:20',
+            'keterangan'   => 'nullable|string|max:255',
+            'status'       => 'nullable|string|max:100',
+        ]);
+
+        // Simpan data langsung (tanpa perlu definisikan satu-satu)
+        jurusan::create($data);
+
+        return redirect()->route('jurusan.index')->with('success', 'Data jurusan berhasil ditambahkan.');
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
+    public function edit(jurusan $jurusan)
     {
-        //
+        return view('jurusan.edit',compact('jurusan'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
+    public function update(Request $request, jurusan $jurusan)
     {
-        //
+        // Validasi data
+        $data = $request->validate([
+            'nama_jurusan' => 'required|string|max:255',
+            'kode_jurusan' => 'required|string|max:20|unique:jurusan,kode_jurusan,'.$jurusan->id,
+            'keterangan'   => 'nullable|string|max:255',
+            'status'       => 'nullable|string|max:100',
+        ]);
+
+        // Update data langsung
+        $jurusan->update($data);
+
+        return redirect()->route('jurusan.index')->with('success', 'Data jurusan berhasil diperbarui.');
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
+    public function show(jurusan $jurusan)
     {
-        //
+        return view('jurusan.show', compact('jurusan'));
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
+    public function destroy(jurusan $jurusan)
     {
-        //
+
+        $jurusan->delete();
+
+        return redirect()->route('jurusan.index')->with('success', 'Data jurusan berhasil dihapus.');
     }
 }

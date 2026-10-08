@@ -55,22 +55,22 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @forelse ($jurusan as $key => $jurusan)
+                    @forelse ($jurusan as $key => $item)
                     <tr>
                         <td>{{ $jurusan->firstItem() + $key }}</td>
-                        <td>{{ $jurusan->kode_jurusan }}</td>
-                        <td>{{ $jurusan->nama_jurusan }}</td>
-                        <td>{{ $jurusan->keterangan }}</td>
-                        <td>{{ $jurusan->status }}</td>
+                        <td>{{ $item->kode_jurusan }}</td>
+                        <td>{{ $item->nama_jurusan }}</td>
+                        <td>{{ $item->keterangan }}</td>
+                        <td>{{ $item->status }}</td>
                         <td>
                             {{-- Tombol Aksi disinkronkan stylenya (btn-sm, icon only) --}}
-                            <a class="btn btn-info btn-sm" href="{{ route('jurusan.show', $jurusan->id) }}" title="Lihat">
+                            <a class="btn btn-info btn-sm" href="{{ route('jurusan.show', $item->id) }}" title="Lihat">
                                 <i class="fas fa-eye"></i>
                             </a>
-                            <a href="{{ route('jurusan.edit', $jurusan->id) }}" class="btn btn-warning btn-sm" title="Edit">
+                            <a href="{{ route('jurusan.edit', $item->id) }}" class="btn btn-warning btn-sm" title="Edit">
                                 <i class="fas fa-edit"></i>
                             </a>
-                            <form action="{{ route('jurusan.destroy', $jurusan->id) }}" method="POST" style="display: inline-block;">
+                            <form action="{{ route('jurusan.destroy', $item->id) }}" method="POST" style="display: inline-block;">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')" title="Hapus">
