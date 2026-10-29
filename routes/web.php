@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\jurusanController;
+use App\Http\Controllers\jenjangController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -17,6 +18,7 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     Route::resource('jurusan', jurusanController::class);
+    Route::resource('jenjang', jenjangController::class);
 });
 
 require __DIR__.'/auth.php';

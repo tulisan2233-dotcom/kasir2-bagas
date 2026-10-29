@@ -11,9 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('jenis_tagihan', function (Blueprint $table) {
+        Schema::create('metode_pembayaran', function (Blueprint $table) {
             $table->id();
+            $table->string('kode_metode',20)->unique();
+            $table->string('nama_metode',50)->nullable();
+            $table->text('keterangan');
+            $table->enum('status', ['aktif','nonaktif'])->default('aktif');
             $table->timestamps();
+
         });
     }
 
@@ -22,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('jenis_tagihan');
+        Schema::dropIfExists('metode_pembayaran');
     }
 };

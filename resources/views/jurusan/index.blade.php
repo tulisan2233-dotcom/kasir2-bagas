@@ -13,7 +13,7 @@
             <h3 class="card-title">Daftar jurusan</h3>
             <div class="card-tools">
                 <a href="{{ route('jurusan.create') }}" class="btn btn-primary btn-sm">
-                    <i class="fas fa-plus"></i> Tambah jurusan
+                    <i class="bi bi-plus"></i> Tambah jurusan
                 </a>
             </div>
         </div>
@@ -25,7 +25,7 @@
                     <input type="text" name="search" class="form-control" placeholder="Cari nama jurusan atau kode jurusan" value="{{ request('search') }}">
                     <div class="input-group-append">
                         <button class="btn btn-primary" type="submit">
-                            <i class="fas fa-search"></i> Cari
+                            <i class="bi bi-search"></i> Cari
                         </button>
                     </div>
                 </div>
@@ -65,16 +65,16 @@
                         <td>
                             {{-- Tombol Aksi disinkronkan stylenya (btn-sm, icon only) --}}
                             <a class="btn btn-info btn-sm" href="{{ route('jurusan.show', $item->id) }}" title="Lihat">
-                                <i class="fas fa-eye"></i>
+                                <i class="bi bi-eye"></i>
                             </a>
                             <a href="{{ route('jurusan.edit', $item->id) }}" class="btn btn-warning btn-sm" title="Edit">
-                                <i class="fas fa-edit"></i>
+                                <i class="bi bi-pencil"></i>
                             </a>
                             <form action="{{ route('jurusan.destroy', $item->id) }}" method="POST" style="display: inline-block;">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')" title="Hapus">
-                                    <i class="fas fa-trash"></i>
+                                    <i class="bi bi-trash"></i>
                                 </button>
                             </form>
                         </td>

@@ -17,10 +17,10 @@ return new class extends Migration
             $table->string('nama');
             $table->enum('jenis_kelamin', ['L','P']);
             $table->text('alamat')->nullable();
-            $table->foreign('kelas_id')->constrained('kelas')->cascadeOnDelete();
+            $table->foreignId('kelas_id')->constrained('kelas')->cascadeOnDelete();
             $table->enum('status', ['aktif','nonaktif'])->default('aktif');
-            $table->timestamp('created_at',6)->nullable();
-            $table->timestamp('update_at',6)->nullable();
+                        $table->timestamps();
+
         });
     }
 

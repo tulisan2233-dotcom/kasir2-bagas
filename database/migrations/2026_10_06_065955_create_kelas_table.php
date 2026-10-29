@@ -17,8 +17,6 @@ return new class extends Migration
             $table->foreignId('jenjang_id')->constrained('jenjang')->cascadeOnDelete();
             $table->foreignId('jurusan_id')->constrained('jurusan')->cascadeOnDelete();
             $table->enum('status', ['aktif','nonaktif'])->default('aktif');
-            $table->timestamp('created_at',6)->nullable();
-            $table->timestamp('update_at',6)->nullable();
             $table->timestamps();
         });
     }
