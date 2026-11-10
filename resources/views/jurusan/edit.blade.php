@@ -30,7 +30,10 @@
 
                 <div class="form-group">
                     <label for="status">Status</label>
-                    <input type="text" name="status" class="form-control" id="status" value="{{ $jurusan->status }}">
+                    <select name="status" class="form-control" id="status">
+                        <option value="aktif" {{ $jurusan->status === 'aktif' ? 'selected' : '' }}>Aktif</option>
+                        <option value="nonaktif" {{ $jurusan->status === 'nonaktif' ? 'selected' : '' }}>Nonaktif</option>
+                    </select>
                 </div>
 
                 <button type="submit" class="btn btn-primary">Update</button>

@@ -13,14 +13,14 @@ class jurusanController extends Controller
     public function index(Request $request)
     {
 	    //Filter search
-        $jurusan = jurusan::query()
+        $jurusans = jurusan::query()
             ->when($request->search, function ($query, $search) {
                 $query->where('nama_jurusan', 'like', "%{$search}%")
                       ->orWhere('kode_jurusan', 'like', "%{$search}%");
             })
             ->paginate(10);
 
-        return view('jurusan.index', compact('jurusan'));
+        return view('jurusan.index', compact('jurusans'));
     }
 
      public function create()
@@ -32,8 +32,8 @@ class jurusanController extends Controller
     {
         // Validasi sekaligus simpan hasilnya ke variabel $data
         $data = $request->validate([
-            'nama_jurusan' => 'required|string|max:255',
             'kode_jurusan' => 'required|string|unique:jurusan|max:20',
+            'nama_jurusan' => 'required|string|max:255',
             'keterangan'   => 'nullable|string|max:255',
             'status'       => 'nullable|string|max:100',
         ]);
@@ -53,8 +53,8 @@ class jurusanController extends Controller
     {
         // Validasi data
         $data = $request->validate([
-            'nama_jurusan' => 'required|string|max:255',
             'kode_jurusan' => 'required|string|max:20|unique:jurusan,kode_jurusan,'.$jurusan->id,
+            'nama_jurusan' => 'required|string|max:255',
             'keterangan'   => 'nullable|string|max:255',
             'status'       => 'nullable|string|max:100',
         ]);

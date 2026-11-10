@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('nama_jenjang',50);
             $table->string('keterangan')->nullable();
-                        $table->timestamps();
+            $table->timestamps();
 
         });
     }

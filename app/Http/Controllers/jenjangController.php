@@ -13,14 +13,14 @@ class jenjangController extends Controller
     public function index(Request $request)
     {
 	    //Filter search
-        $jenjang = jenjang::query()
+        $jenjangs = jenjang::query()
             ->when($request->search, function ($query, $search) {
                 $query->where('nama_jenjang', 'like', "%{$search}%")
                       ->orWhere('keterangan', 'like', "%{$search}%");
             })
             ->paginate(10);
 
-        return view('jenjang.index', compact('jenjang'));
+        return view('jenjang.index', compact('jenjangs'));
     }
 
      public function create()

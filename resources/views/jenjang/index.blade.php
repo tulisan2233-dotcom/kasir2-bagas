@@ -67,19 +67,16 @@
             </thead>
 
             <tbody>
-                @forelse ($jenjang as $key => $item)
+                @forelse ($jenjangs as $key => $jenjang)
                     <tr>
                         {{-- Nomor urut mengikuti halaman pagination --}}
-                        <td>{{ $jenjang->firstItem() + $key }}</td>
-
-                        <td>{{ $item->nama_jenjang }}</td>
-
-                        <td>{{ $item->keterangan ?? '-' }}</td>
-
+                        <td>{{ $jenjangs->firstItem() + $key }}</td>
+                        <td>{{ $jenjang->nama_jenjang }}</td>
+                        <td>{{ $jenjang->keterangan ?? '-' }}</td>
                         <td>
                             {{-- Tombol Detail --}}
                             <a
-                                href="{{ route('jenjang.show', $item->id) }}"
+                                href="{{ route('jenjang.show', $jenjang->id) }}"
                                 class="btn btn-info btn-sm"
                                 title="Detail"
                             >
@@ -88,7 +85,7 @@
 
                             {{-- Tombol Edit --}}
                             <a
-                                href="{{ route('jenjang.edit', $item->id) }}"
+                                href="{{ route('jenjang.edit', $jenjang->id) }}"
                                 class="btn btn-warning btn-sm"
                                 title="Edit"
                             >
@@ -97,7 +94,7 @@
 
                             {{-- Tombol Hapus --}}
                             <form
-                                action="{{ route('jenjang.destroy', $item->id) }}"
+                                action="{{ route('jenjang.destroy', $jenjang->id) }}"
                                 method="POST"
                                 style="display: inline-block;"
                                 onsubmit="return confirm('Apakah Anda yakin ingin menghapus data jenjang ini?')"
@@ -128,20 +125,7 @@
 
     {{-- Pagination --}}
     <div class="card-footer clearfix">
-        <div class="float-left">
-            <small class="text-muted">
-                @if($jenjang->total() > 0)
-                    Menampilkan {{ $jenjang->firstItem() }}
-                    sampai {{ $jenjang->lastItem() }}
-                    dari {{ $jenjang->total() }} data
-                @else
-                    Tidak ada data
-                @endif
-            </small>
-        </div>
-
-        <div class="float-right">
-            {{ $jenjang->appends(request()->query())->links('pagination::bootstrap-4') }}
+            {{ $jenjangs->appends(request()->query())->links('pagination::bootstrap-4') }}
         </div>
     </div>
 

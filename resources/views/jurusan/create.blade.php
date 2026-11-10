@@ -44,14 +44,17 @@
 
                 <div class="form-group">
                     <label for="status">Status</label>
-                    <input type="text" name="status" class="form-control @error('status') is-invalid @enderror" id="status" required placeholder="Contoh: Aktif" value="{{ old('status') }}">
+                    <select name="status" class="form-control @error('status') is-invalid @enderror" id="status" required>
+                        <option value="">Pilih Status</option>
+                        <option value="aktif" {{ old('status') === 'aktif' ? 'selected' : '' }}>Aktif</option>
+                        <option value="nonaktif" {{ old('status') === 'nonaktif' ? 'selected' : '' }}>Nonaktif</option>
+                    </select>
                     @error('status')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
                         </span>
                     @enderror
                 </div>
-
                 <button type="submit" class="btn btn-primary">Simpan</button>
                 <a href="{{ route('jurusan.index') }}" class="btn btn-secondary">Batal</a>
             </form>
